@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct PokemomCell: View {
+    let pokemon: Pokemon
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                Text("Mew")
+                Text(pokemon.name.capitalized)
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding(.top, 4)
                     .padding(.leading)
                 
                 HStack {
-                    Text("Psychic")
+                    Text(pokemon.type)
                         .font(.subheadline).bold()
                         .foregroundColor(.white)
                         .padding(.horizontal, 16)
@@ -29,7 +31,7 @@ struct PokemomCell: View {
                         )
                         .frame(width: 100, height: 24)
                     
-                    Image("mew")
+                    Image(pokemon.image)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 68, height: 68)
@@ -45,7 +47,7 @@ struct PokemomCell: View {
 
 struct PokemomCell_Previews: PreviewProvider {
     static var previews: some View {
-        PokemomCell()
+        PokemomCell(pokemon: MOCK_POKEMON[1])
             .previewLayout(.fixed(width: 250, height: 200))
     }
 }
