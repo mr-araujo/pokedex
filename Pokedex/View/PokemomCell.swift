@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PokemomCell: View {
     let pokemon: Pokemon
+    let color: UIColor
     
     var body: some View {
         ZStack {
@@ -31,7 +33,7 @@ struct PokemomCell: View {
                         )
                         .frame(width: 100, height: 24)
                     
-                    Image("mew")
+                    KFImage(URL(string: pokemon.imageUrl))
                         .resizable()
                         .scaledToFit()
                         .frame(width: 48, height: 48)
@@ -39,15 +41,15 @@ struct PokemomCell: View {
                 }
             }
         }
-        .background(Color.pink)
+        .background(Color(color))
         .cornerRadius(12)
-        .shadow(color: .pink, radius: 6, x: 0, y: 0)
+        .shadow(color: Color(color), radius: 6, x: 0, y: 0)
     }
 }
 
 struct PokemomCell_Previews: PreviewProvider {
     static var previews: some View {
-        PokemomCell(pokemon: MOCK_POKEMON[1])
+        PokemomCell(pokemon: MOCK_POKEMON[1], color: .systemPurple)
             .previewLayout(.fixed(width: 250, height: 200))
     }
 }

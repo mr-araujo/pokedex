@@ -16,7 +16,7 @@ struct PokedexView: View {
             ScrollView {
                 LazyVGrid(columns: gridItems, spacing: 20) {
                     ForEach(viewModel.pokemon) { pokemon in
-                        PokemomCell(pokemon: pokemon)
+                        PokemomCell(pokemon: pokemon, color: viewModel.getColor(forType: pokemon.type))
                     }
                 }
             }
