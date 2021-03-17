@@ -31,10 +31,10 @@ struct PokemomCell: View {
                         )
                         .frame(width: 100, height: 24)
                     
-                    Image(pokemon.image)
+                    Image("mew")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 68, height: 68)
+                        .frame(width: 48, height: 48)
                         .padding([.trailing, .bottom])
                 }
             }

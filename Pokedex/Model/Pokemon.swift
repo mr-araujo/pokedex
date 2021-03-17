@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Pokemon {
+struct Pokemon: Decodable, Identifiable {
     let id: Int
     let name: String
-    let image: String
+    let imageUrl: String
     let type: String
 }
 
 let MOCK_POKEMON: [Pokemon] = [
-    .init(id: 0, name: "Mew", image: "mew", type: "Psychic"),
-    .init(id: 1, name: "Mewtwo", image: "mewtwo", type: "Psychic")
+    .init(id: 0, name: "Mew", imageUrl: "mew", type: "Psychic"),
+    .init(id: 1, name: "Mewtwo", imageUrl: "mewtwo", type: "Psychic")
 ]

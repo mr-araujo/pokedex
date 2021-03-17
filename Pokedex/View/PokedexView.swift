@@ -9,18 +9,21 @@ import SwiftUI
 
 struct PokedexView: View {
     private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
+    @ObservedObject var viewModel = PokemonViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: gridItems, spacing: 16) {
-                    ForEach(0..<151) { _ in
-                        PokemomCell(pokemon: MOCK_POKEMON[1])
+                LazyVGrid(columns: gridItems, spacing: 20) {
+                    ForEach(viewModel.pokemon) { pokemon in
+                        PokemomCell(pokemon: pokemon)
                     }
                 }
             }
             .navigationTitle("Pokedex")
+            .padding(.horizontal, 5)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
